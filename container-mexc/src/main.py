@@ -28,14 +28,15 @@ try:
     api_secret = env("API_SECRET", required=True)
 
     # Validate PostgreSQL database settings
-    postgres_host = env("POSTGRES_HOST", required=True)
+    postgres_host = env("POSTGRES_HOST")
     postgres_port = int(env("POSTGRES_PORT", default="5432"))  # Cast to int
-    postgres_name = env("POSTGRES_NAME", required=True)
-    postgres_user = env("POSTGRES_USER", required=True)
-    postgres_password = env("POSTGRES_PASSWORD", required=True)
+    postgres_name = env("POSTGRES_NAME")
+    postgres_user = env("POSTGRES_USER")
+    postgres_password = env("POSTGRES_PASSWORD")
 
 except Exception as e:
     print(f"Error: {e}")
+    assert False
 
 # MEXC API URL for spot market data
 API_URL = "https://api.mexc.com/api/v3/ticker/24hr"
