@@ -21,6 +21,8 @@ services:
   postgresdb:
     image: postgres:latest
     restart: unless-stopped
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust  # Bypass password authentication (for testing only)
     ports:
       - "5432:5432"
     volumes:

@@ -3,14 +3,14 @@ from envs import env
 
 
 def fetch_data_from_table():
-    """Connects to the PostgreSQL database and fetches data from a table."""
-    # Database connection parameters from environment variables
-    POSTGRES_HOST = env("POSTGRES_HOST", required=True)
-    POSTGRES_PORT = int(env("POSTGRES_PORT", required=True))
-    POSTGRES_NAME = env("POSTGRES_NAME", required=True)
-    POSTGRES_USER = env("POSTGRES_USER", required=True)
-    POSTGRES_PASSWORD = env("POSTGRES_PASSWORD", required=True)
-    # Set your table name
+    """Connects to the PostgreSQL database on a remote server and fetches data from a table."""
+    # Database connection parameters from environment variables or directly provided
+    POSTGRES_HOST = "49.13.162.212"  # Remote PostgreSQL server IP
+    POSTGRES_PORT = int(env("POSTGRES_PORT", default="5432"))
+    POSTGRES_NAME = env("POSTGRES_NAME")
+    POSTGRES_USER = env("POSTGRES_USER")
+    POSTGRES_PASSWORD = env("POSTGRES_PASSWORD")
+    # Table name to fetch data from
     TABLE_NAME = env("TABLE_NAME", default="spot_market_data")
 
     try:
