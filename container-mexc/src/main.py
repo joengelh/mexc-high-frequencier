@@ -91,11 +91,11 @@ def store_data_to_db(data):
     try:
         # Connect to PostgreSQL
         conn = psycopg2.connect(
-            host=DB_HOST,
-            port=DB_PORT,
-            database=DB_NAME,
-            user=DB_USER,
-            password=DB_PASSWORD
+            host=postgres_host,
+            port=postgres_port,
+            database=postgres_name,
+            user=postgres_user,
+            password=postgres_password
         )
         cursor = conn.cursor()
 
