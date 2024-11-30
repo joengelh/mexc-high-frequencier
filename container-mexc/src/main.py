@@ -21,15 +21,15 @@ def to_bool(value):
 
 try:
     # Validate LIVE_TRADING
-    live_trading = to_bool(env("LIVE_TRADING", default="False"))
+    live_trading = to_bool(env("LIVE_TRADING"))
 
     # Validate API keys
-    api_key = env("API_KEY", required=True)
-    api_secret = env("API_SECRET", required=True)
+    api_key = env("API_KEY")
+    api_secret = env("API_SECRET")
 
     # Validate PostgreSQL database settings
     postgres_host = env("POSTGRES_HOST")
-    postgres_port = int(env("POSTGRES_PORT", default="5432"))  # Cast to int
+    postgres_port = int(env("POSTGRES_PORT"))  # Cast to int
     postgres_name = env("POSTGRES_NAME")
     postgres_user = env("POSTGRES_USER")
     postgres_password = env("POSTGRES_PASSWORD")
